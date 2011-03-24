@@ -1,0 +1,30 @@
+#LocalTitle
+  All Recipes
+  
+%table#RecipeListing
+  %tr
+    %th
+      Name
+    %th
+      Description
+    %th
+      Rating
+    %th
+    %th
+    %th    
+  - @recipes.each do |r| 
+    %tr
+      %td
+        = r.name
+      %td
+        THIS WILL BE DESCRIPTION
+      %td
+        THIS WILL BE RATING
+      %td
+        = link_to 'Show', r
+      %td
+        = link_to 'Edit', edit_recipe_path(r)
+      %td
+        = link_to 'Destroy', r, :confirm => 'Are you sure?', :method => :delete 
+%br
+= link_to 'New Recipe', new_recipe_path

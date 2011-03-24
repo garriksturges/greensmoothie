@@ -1,0 +1,14 @@
+- form_for @recipe do |f|
+  = f.label :name, 'Name:'
+  = f.text_field :name
+  %table#INGREDIENTS
+    = f.fields_for :parts do |p|
+      %tr
+        %td
+          = p.label :amount
+          = p.select "amount", {1=>1, 2=>2, 3=>3, 4=>4, 5=>5, 6=>6, 7=>7, 8=>8, 9=>9, 10=>10}, { :include_blank => true }
+        %td
+          = p.label :ingredient
+          = p.collection_select :ingredient_id, Ingredient.all, :id, :name, { :include_blank => true }
+  = link_to "Add Another Ingredient", "ujs/add_part", :remote=>true
+  = f.submit :submit

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  opinion: MyString
+  rating: 1.5
+  user_id: 1
+  recipe_id: 1
+
+two:
+  opinion: MyString
+  rating: 1.5
+  user_id: 1
+  recipe_id: 1
