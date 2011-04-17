@@ -44,11 +44,10 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to(@ingredient, :notice => 'Ingredient was successfully created.') }
-        format.xml  { render :xml => @ingredient, :status => :created, :location => @ingredient }
+        format.html{redirect_to(:new_recipe)}
+        #format.html { redirect_to(@ingredient, :notice => 'Ingredient was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @ingredient.errors, :status => :unprocessable_entity }
       end
     end
   end

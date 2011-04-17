@@ -11,4 +11,7 @@
           = p.label :ingredient
           = p.collection_select :ingredient_id, Ingredient.all, :id, :name, { :include_blank => true }
   = link_to "Add Another Ingredient", "ujs/add_part", :remote=>true
+  %br
+  = f.text_area :description, :size=>"40x20"
+  %br
   = f.submit :submit
