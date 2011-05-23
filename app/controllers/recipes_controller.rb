@@ -41,7 +41,8 @@ class RecipesController < ApplicationController
   # POST /recipes.xml
   def create
     @recipe = Recipe.new(params[:recipe])
-    @parts = @recipe.parts
+    @recipe.user_id = current_user.id
+    @recipe.parts = clean_parts(@recipe.parts)
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to(@recipe, :notice => 'Recipe was successfully created.') }
@@ -82,4 +83,10 @@ class RecipesController < ApplicationController
       format.js
     end
   end
+  
+  def clean_parts(parts)
+    parts.delete_if {|p| p.ingredient_id == nil && p.amount == nil}
+    
+  end
+  
 end

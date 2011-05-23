@@ -20,6 +20,6 @@
     = f.label :variety
     %br
     /= f.text_field :variety
-    = f.select(:variety, options_for_select([["Green","Green"],["Fruit","Fruit"] ,["Vegetable","Fruit"],["Other","Other"]]))
+    = f.select(:variety, options_for_select([["--Select--","--Select--"],["Green","Green"],["Fruit","Fruit"] ,["Vegetable","Fruit"],["Other","Other"]]))
   .actions
     = f.submit 
